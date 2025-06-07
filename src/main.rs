@@ -6,33 +6,51 @@ fn main() {
     // let length = get_string_len(my_str);
     // println!("{}", length);
 
-    let user = User {
-        first_name: String::from("Pratham"),
-        last_name: String::from("Dubey"),
-        age: 20,
+    // let user = User {
+    //     first_name: String::from("Pratham"),
+    //     last_name: String::from("Dubey"),
+    //     age: 20,
+    // };
+
+    // println!("{}", user.first_name);
+    // println!("{}", user.last_name);
+    // println!("{}", user.get_age());
+    // println!("{}", User::debug());
+
+    let my_circle = Shape::Circle(5.0);
+    print_area(my_circle);
+    let my_rect = Shape::Rectangle(2.0, 4.0);
+    print_area(my_rect);
+}
+
+enum Shape {
+    Rectangle(f64, f64),
+    Circle(f64),
+}
+
+fn print_area(shape: Shape) {
+    let area = match shape {
+        Shape::Circle(r) => 3.14 * (r * r),
+        Shape::Rectangle(l, b) => l * b,
     };
-
-    println!("{}", user.first_name);
-    println!("{}", user.last_name);
-    println!("{}", user.get_age());
-    println!("{}", User::debug());
+    println!("{}", area);
 }
 
-struct User {
-    first_name: String,
-    last_name: String,
-    age: i32,
-}
+// struct User {
+//     first_name: String,
+//     last_name: String,
+//     age: i32,
+// }
 
-impl User {
-    fn get_age(&self) -> i32 {
-        self.age
-    }
+// impl User {
+//     fn get_age(&self) -> i32 {
+//         self.age
+//     }
 
-    fn debug() -> i32 {
-        return 1;
-    }
-}
+//     fn debug() -> i32 {
+//         return 1;
+//     }
+// }
 
 // fn is_even(num: i32) -> bool {
 //     // Bitwise operation
