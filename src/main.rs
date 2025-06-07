@@ -1,4 +1,5 @@
-use std::fs::read_to_string;
+// use std::fs::read_to_string;
+use chrono::{Local, Utc};
 
 fn main() {
     // println!("{}", is_even(20));
@@ -31,12 +32,21 @@ fn main() {
     //     None => println!("The character 'a' not found"),
     // }
 
-    let file_result = read_to_string("file.txt");
+    // let file_result = read_to_string("file.txt");
 
-    match file_result {
-        Ok(content) => println!("{:?}", content),
-        Err(err) => println!("Following error occured: {:?}", err),
-    }
+    // match file_result {
+    //     Ok(content) => println!("{:?}", content),
+    //     Err(err) => println!("Following error occured: {:?}", err),
+    // }
+
+    let now = Utc::now();
+    println!("Current date and time in UTC is: {}", now);
+
+    let formatted_now = now.format("%Y-%m-%d %H:%M:%S");
+    println!("Formatted date and time: {}", formatted_now);
+
+    let local = Local::now();
+    println!("Current date and time in Local is: {}", local);
 }
 
 // enum Shape {
