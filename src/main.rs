@@ -17,23 +17,40 @@ fn main() {
     // println!("{}", user.get_age());
     // println!("{}", User::debug());
 
-    let my_circle = Shape::Circle(5.0);
-    print_area(my_circle);
-    let my_rect = Shape::Rectangle(2.0, 4.0);
-    print_area(my_rect);
+    // let my_circle = Shape::Circle(5.0);
+    // print_area(my_circle);
+    // let my_rect = Shape::Rectangle(2.0, 4.0);
+    // print_area(my_rect);
+
+    let index = find_first_a(String::from("Pratham"));
+
+    match index {
+        Some(value) => println!("The index is {}", value),
+        None => println!("The character 'a' not found"),
+    }
 }
 
-enum Shape {
-    Rectangle(f64, f64),
-    Circle(f64),
-}
+// enum Shape {
+//     Rectangle(f64, f64),
+//     Circle(f64),
+// }
 
-fn print_area(shape: Shape) {
-    let area = match shape {
-        Shape::Circle(r) => 3.14 * (r * r),
-        Shape::Rectangle(l, b) => l * b,
-    };
-    println!("{}", area);
+// fn print_area(shape: Shape) {
+//     let area = match shape {
+//         Shape::Circle(r) => 3.14 * (r * r),
+//         Shape::Rectangle(l, b) => l * b,
+//     };
+//     println!("{}", area);
+// }
+
+fn find_first_a(s: String) -> Option<i32> {
+    for (i, char) in s.chars().enumerate() {
+        if char == 'a' {
+            return Some(i as i32);
+        }
+    }
+
+    return None;
 }
 
 // struct User {
