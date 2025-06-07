@@ -2,9 +2,36 @@ fn main() {
     // println!("{}", is_even(20));
     // println!("{}", fib(4));
 
-    let my_str = String::from("Hello, world!");
-    let length = get_string_len(my_str);
-    println!("{}", length);
+    // let my_str = String::from("Hello, world!");
+    // let length = get_string_len(my_str);
+    // println!("{}", length);
+
+    let user = User {
+        first_name: String::from("Pratham"),
+        last_name: String::from("Dubey"),
+        age: 20,
+    };
+
+    println!("{}", user.first_name);
+    println!("{}", user.last_name);
+    println!("{}", user.get_age());
+    println!("{}", User::debug());
+}
+
+struct User {
+    first_name: String,
+    last_name: String,
+    age: i32,
+}
+
+impl User {
+    fn get_age(&self) -> i32 {
+        self.age
+    }
+
+    fn debug() -> i32 {
+        return 1;
+    }
 }
 
 // fn is_even(num: i32) -> bool {
@@ -35,7 +62,7 @@ fn main() {
 //     return second;
 // }
 
-fn get_string_len(str: String) -> usize {
-    // Implicit return here, no need to put "return" or ";"
-    str.chars().count()
-}
+// fn get_string_len(str: String) -> usize {
+//     // Implicit return here, no need to put "return" or ";"
+//     str.chars().count()
+// }
