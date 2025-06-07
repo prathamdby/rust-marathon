@@ -1,3 +1,5 @@
+use std::fs::read_to_string;
+
 fn main() {
     // println!("{}", is_even(20));
     // println!("{}", fib(4));
@@ -22,11 +24,18 @@ fn main() {
     // let my_rect = Shape::Rectangle(2.0, 4.0);
     // print_area(my_rect);
 
-    let index = find_first_a(String::from("Pratham"));
+    // let index = find_first_a(String::from("Pratham"));
 
-    match index {
-        Some(value) => println!("The index is {}", value),
-        None => println!("The character 'a' not found"),
+    // match index {
+    //     Some(value) => println!("The index is {}", value),
+    //     None => println!("The character 'a' not found"),
+    // }
+
+    let file_result = read_to_string("file.txt");
+
+    match file_result {
+        Ok(content) => println!("{:?}", content),
+        Err(err) => println!("Following error occured: {:?}", err),
     }
 }
 
@@ -43,15 +52,15 @@ fn main() {
 //     println!("{}", area);
 // }
 
-fn find_first_a(s: String) -> Option<i32> {
-    for (i, char) in s.chars().enumerate() {
-        if char == 'a' {
-            return Some(i as i32);
-        }
-    }
+// fn find_first_a(s: String) -> Option<i32> {
+//     for (i, char) in s.chars().enumerate() {
+//         if char == 'a' {
+//             return Some(i as i32);
+//         }
+//     }
 
-    return None;
-}
+//     return None;
+// }
 
 // struct User {
 //     first_name: String,
